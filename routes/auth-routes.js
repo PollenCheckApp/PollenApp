@@ -39,7 +39,11 @@ router.post("/signup", (req, res, next) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
-        res.redirect("/profile-setup");
+        req.login(newUser, function(err) {
+          if (err) { return next(err); }
+          return res.redirect("/profile-setup");
+
+        });
       }
     });
   })
@@ -78,26 +82,16 @@ router.get("/profile-setup", (req, res) => {
   res.render("profile-setup");
 }); 
 
-// router.post("/profile-setup", (req, res, next) => {
-//   const name = req.body.username;
-//   const zipcode = req.body.zipcode;
- 
-//   if (zipcode >= 6) {
-//     res.render("profile-setup", { message: "Zipcode is incorrect" });
-//     return;
-//   }
-
-//     User.save((err) => {
-//       if (err) {
-//         res.render("profile-setup", { message: "Something went wrong" });
-//       } else {
-//         res.redirect("/profile-setup");
-//       }
-//     });
-//   })
-//   .catch(error => {
-//     next(error)
-//   })
-
+router.post("/profile-setup", (req, res, next) => {
+  console.log(req.user)
+  const name = req.body.name;
+  const zipcode = req.body.zipcode;
+  console.log('the name is :', name);
+  console.log('the zipcode is :', zipcode);
+  User.findByIdAndUpdate(req.user._id, { name, zipcode} , { new: true }).then(responseDB => {
+    console.log("this is the response", responseDB)
+    res.redirect("/private-page")
+  })
+});
 
 module.exports = router;
