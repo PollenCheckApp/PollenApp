@@ -84,14 +84,22 @@ router.get("/profile-setup", (req, res) => {
 
 router.post("/profile-setup", (req, res, next) => {
   console.log(req.user)
-  const name = req.body.name;
-  const zipcode = req.body.zipcode;
-  console.log('the name is :', name);
-  console.log('the zipcode is :', zipcode);
+  const {name, zipcode} = req.body;
+  // const name = req.body.name;
+  // const zipcode = req.body.zipcode;
+  // console.log('the name is :', name);
+  // console.log('the zipcode is :', zipcode);
   User.findByIdAndUpdate(req.user._id, { name, zipcode} , { new: true }).then(responseDB => {
     console.log("this is the response", responseDB)
     res.redirect("/private-page")
   })
 });
+
+// HISTORY PAGE
+
+router.get("/history", (req, res) => {
+  res.render("history.hbs");
+}); 
+
 
 module.exports = router;
