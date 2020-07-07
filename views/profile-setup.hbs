@@ -1,0 +1,18 @@
+<h1>Profile Setup</h1>
+ 
+<form action="/profile-setup" method="POST">
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="name" placeholder="Your Name">
+  <br><br>
+
+  <label for="zipcode">Zipcode</label>
+  <input id="zipcode" type="number" name="zipcode" placeholder="Your Zipcode">
+ 
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}}
+  <br><br>
+ 
+  <button>Update your Profile</button>
+ 
+</form>
