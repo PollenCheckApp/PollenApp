@@ -1,8 +1,49 @@
 body {
-  padding: 50px;
+  padding: 5rem;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  /* padding-top: 3.5rem; */
 
 a {
   color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Sign in & Login in forms */
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Profile
+
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; } */

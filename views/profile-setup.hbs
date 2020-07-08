@@ -9,14 +9,38 @@
   <input id="name" type="text" name="name" placeholder="Your Name">
   <br><br>
 
- <!-- <label for="zipcode">Zipcode</label>
-  <input id="zipcode" type="number" name="zipcode" placeholder="Your Zipcode">
-  <br><br> -->
 
-  <form action="/profile-setup" method="POST">
+  <h3>Choose your Pollen Allergies</h3>
+
+  <input type="checkbox" name="Roggen" value="Roggen">
+  <label for="Roggen"> Rye</label><br>
+  
+  <input type="checkbox" name="Mugwort" value="Mugwort">
+  <label for="Mugwort"> Mugwort</label><br>
+
+  <input type="checkbox" name="Alder" value="Alder">
+  <label for="Alder"> Alder</label><br>
+
+  <input type="checkbox" name="Ragweed" value="Ragweed">
+  <label for="Ragweed"> Ragweed</label><br>
+
+  <input type="checkbox" name="Ash" value="Ash">
+  <label for="Ash"> Ash</label><br>
+
+  <input type="checkbox" name="Birch" value="Birch">
+  <label for="Birch"> Birch</label><br>
+
+  <input type="checkbox" name="Grass" value="Grass">
+  <label for="Grass"> Grass</label><br>
+
+  <input type="checkbox" name="Hasel" value="Hasel">
+  <label for="Hasel"> Hazel</label><br>
+
+  <h2>Select Region:</h2>
+  <form action="/action_page.php">
   <label for="regions">Select a Region:</label>
   <select id="regions" name="regions">
-    <option value= "10">Schleswig-Holstein und Hamburg</option>
+    <option value="Schleswig-Holstein und Hamburg">Schleswig-Holstein und Hamburg</option>
     <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
     <option value="Niedersachsen und Bremen">Niedersachsen und Bremen</option>
     <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
@@ -36,6 +60,7 @@
     <option data-group='Mecklenburg-Vorpommern' value='Niedersachsen und Bremen'>Niedersachsen und Bremen</option>
 <select>
   <input type="submit">
+<<<<<<< HEAD
 
   <h3> Add Pollentypes you interested in: </h3>
 
@@ -48,7 +73,10 @@
   <p><b>Ash pollen</b> </p><button>Add to Profile</button>
   <p><b>Mugwort pollen</b></p><button>Add to Profile</button>
 
+=======
+>>>>>>> master
  
+
   {{#if message}}
     <div class="error-message">{{ message }}</div>
   {{/if}}

@@ -84,20 +84,37 @@ router.get("/profile-setup", (req, res) => {
   res.render("profile-setup");
 }); 
 
+
+//pollen-forecast
+
+router.get("/daily-view", (req, res) => {
+  res.render("daily-view");
+}); 
+
+
+// router.post("/profile-setup", (req, res, next) => {
+//   const name = req.body.username;
+//   const zipcode = req.body.zipcode;
+ 
+//   if (zipcode >= 6) {
+//     res.render("profile-setup", { message: "Zipcode is incorrect" });
+//     return;
+//   }
 router.post("/profile-setup", (req, res, next) => {
   console.log(req.user)
-  const {name, zipcode} = req.body;
+  const {name, zipcode, userRegions, userPollens} = req.body;
   // const name = req.body.name;
   // const zipcode = req.body.zipcode;
   // console.log('the name is :', name);
   // console.log('the zipcode is :', zipcode);
-  User.findByIdAndUpdate(req.user._id, { name, zipcode} , { new: true }).then(responseDB => {
+  User.findByIdAndUpdate(req.user._id, { name, userRegions, userPollens} , { new: true }).then(responseDB => {
     console.log("this is the response", responseDB)
     res.redirect("/private-page")
   })
 });
 
 // HISTORY PAGE
+
 
 router.get("/history", (req, res) => {
   res.render("history.hbs");
