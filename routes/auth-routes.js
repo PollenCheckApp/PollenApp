@@ -84,12 +84,12 @@ router.get("/profile-setup", (req, res) => {
 
 router.post("/profile-setup", (req, res, next) => {
   console.log(req.user)
-  const {name, zipcode} = req.body;
+  const {name, zipcode, userRegions, userPollens} = req.body;
   // const name = req.body.name;
   // const zipcode = req.body.zipcode;
   // console.log('the name is :', name);
   // console.log('the zipcode is :', zipcode);
-  User.findByIdAndUpdate(req.user._id, { name, zipcode} , { new: true }).then(responseDB => {
+  User.findByIdAndUpdate(req.user._id, { name, userRegions, userPollens} , { new: true }).then(responseDB => {
     console.log("this is the response", responseDB)
     res.redirect("/private-page")
   })

@@ -6,6 +6,8 @@ const userSchema = new Schema({
   password: String,
   name: String,
   zipcode: Number,
+  userRegions: [Number],
+  // userPollens: [Number]
   // pollenAllergies: [String],
   // airPollution: Boolean
 }, {
