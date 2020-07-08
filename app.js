@@ -107,8 +107,8 @@ app.use('/', index);
 const router = require("./routes/auth-routes");
 app.use('/', router);
 
-const  private = require('./routes/private');
-app.use('/private', private);
+////const  private = require('./routes/private');
+//app.use('/private', private);
 
 
 
