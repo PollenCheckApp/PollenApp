@@ -39,7 +39,11 @@ router.post("/signup", (req, res, next) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
-        res.redirect("/profile-setup");
+        req.login(newUser, function(err) {
+          if (err) { return next(err); }
+          return res.redirect("/profile-setup");
+
+        });
       }
     });
   })
@@ -78,6 +82,7 @@ router.get("/profile-setup", (req, res) => {
   res.render("profile-setup");
 }); 
 
+
 //pollen-forecast
 
 router.get("/daily-view", (req, res) => {
@@ -93,18 +98,25 @@ router.get("/daily-view", (req, res) => {
 //     res.render("profile-setup", { message: "Zipcode is incorrect" });
 //     return;
 //   }
+router.post("/profile-setup", (req, res, next) => {
+  console.log(req.user)
+  const {name, zipcode, userRegions, userPollens} = req.body;
+  // const name = req.body.name;
+  // const zipcode = req.body.zipcode;
+  // console.log('the name is :', name);
+  // console.log('the zipcode is :', zipcode);
+  User.findByIdAndUpdate(req.user._id, { name, userRegions, userPollens} , { new: true }).then(responseDB => {
+    console.log("this is the response", responseDB)
+    res.redirect("/private-page")
+  })
+});
 
-//     User.save((err) => {
-//       if (err) {
-//         res.render("profile-setup", { message: "Something went wrong" });
-//       } else {
-//         res.redirect("/profile-setup");
-//       }
-//     });
-//   })
-//   .catch(error => {
-//     next(error)
-//   })
+// HISTORY PAGE
+
+
+router.get("/history", (req, res) => {
+  res.render("history.hbs");
+}); 
 
 
 module.exports = router;
