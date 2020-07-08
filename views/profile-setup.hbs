@@ -1,3 +1,7 @@
+<!--<head><script src="/javascripts/pollen-data.js" charset="utf-8"></script></head>-->
+<head><script src="/routes/auth-routes.js"></script></head>
+
+
 <h1> Nice to have you here! Please add your name, location and the Pollen levels you intersted in:</h1>
  
 <form action="/profile-setup" method="POST">
@@ -9,7 +13,7 @@
   <input id="zipcode" type="number" name="zipcode" placeholder="Your Zipcode">
   <br><br> -->
 
-  <form action="/action_page.php">
+  <form action="/profile-setup" method="POST">
   <label for="regions">Select a Region:</label>
   <select id="regions" name="regions">
     <option value="Schleswig-Holstein und Hamburg">Schleswig-Holstein und Hamburg</option>
@@ -39,7 +43,7 @@
   <p><b> Ragweed pollen</b></p><button>Add to Profile</button>
   <p><b>Birch pollen</b></p><button>Add to Profile</button>
   <p><b>Rye Pollen</b> </p><button>Add to Profile</button>
-  <p><b>Hazel pollen</b> h</p><button>Add to Profile</button>
+  <p><b>Hazel pollen</b></p><button>Add to Profile</button>
   <p><b>Alder Pollen</b></p><button>Add to Profile</button>
   <p><b>Ash pollen</b> </p><button>Add to Profile</button>
   <p><b>Mugwort pollen</b></p><button>Add to Profile</button>
@@ -49,6 +53,7 @@
     <div class="error-message">{{ message }}</div>
   {{/if}}
   <br><br>
+  
  
   <button>Show me results!</button>
  

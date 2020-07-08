@@ -1,7 +1,6 @@
-const key = "demo";
-const functionName = "TIME_SERIES_DAILY";
-const symbolName = "MSFT";
+const axios = require('axios');
 const apiUrl = `https://cors-anywhere.herokuapp.com/https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json`;
+
 
 
 axios
