@@ -104,15 +104,17 @@ router.get("/history", (req, res) => {
 }); 
 
 // Call to the API
+const apiUrl = `https://cors-anywhere.herokuapp.com/https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json`;
+
 router.get('/profile-setup', (req, res, next) => {
   
-  axios.post('https://cors-anywhere.herokuapp.com/https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json')
+  axios.post(apiUrl)
     .then(response => {
       console.log(response.data);
       const rawData = response.data;
       const pollenDataAmbrosia = response.data.content[0].Pollen.Ambrosia.today;
       console.log(pollenDataAmbrosia);
-      //res.render("profile-setup");
+      res.render("profile-setup",);
     })
     .catch(err => {
       console.log(err);
