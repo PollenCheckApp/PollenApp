@@ -78,6 +78,13 @@ router.get("/profile-setup", (req, res) => {
   res.render("profile-setup");
 }); 
 
+//pollen-forecast
+
+router.get("/daily-view", (req, res) => {
+  res.render("daily-view");
+}); 
+
+
 // router.post("/profile-setup", (req, res, next) => {
 //   const name = req.body.username;
 //   const zipcode = req.body.zipcode;
