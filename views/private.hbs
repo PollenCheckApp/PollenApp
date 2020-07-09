@@ -1,7 +1,7 @@
 <head>
 
 <h2>After Login Page</h2
-{{#if user}}
+//{{#if user}}
 
 <div>
   <p>Hello {{user.username}}</p>
@@ -15,13 +15,15 @@
 
 {{#each pollens}}
 <h3>The Pollen Forcast for: {{region}}</h3>
-<h3>Today's Graeser score: {{pollen.Graeser.today}} </h3>
-<h3>Today's Ambrosia score: {{pollen.Ambrosia.today}} </h3>
+<h3>Today's Graeser score: {{pollen.Graeser.today.}} </h3>
+<h3>Today's Ambrosia score: {{pollen.Ambrosia.today.}} </h3>
 {{/each}}
 
 
 <div>
   <p>The Pollen Forcast for tommorow is :</p>
+  <h3>Tomorrow"s Graeser score: {{pollen.Graeser.tomorrow.}}</h3>
+  <h3>Tommorow's Ambrosia score: {{pollen.Ambrosia.tomorrow.}} </h3>
 </div>
 
 <!--div id="partregion_name"></div>

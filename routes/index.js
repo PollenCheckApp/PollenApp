@@ -59,4 +59,7 @@ router.get("/fun", (req, res, next) => {
   res.render("fun.hbs", { user: req.user });
 });
 
+
+//const pollenEffect = ({pollen.Graeser.today}> 1 ) return "none";
+
 module.exports = router;
