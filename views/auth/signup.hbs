@@ -1,93 +1,94 @@
-    <div class="col-md-8 order-md-1">
-      <h4 class="mb-3"> Profile Set up </h4>
-      <form class="needs-validation" novalidate>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">Username</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            {{!-- <div class="invalid-feedback">
-              Valid first name is required.
-            </div> --}}
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">Password</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            {{!-- <div class="invalid-feedback">
-              Valid last name is required.
-            </div> --}}
-          </div>
-        </div>
-
-
-        <div class="mb-3">
-          <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+<div class="signup-main-class">
+  <div class="col-md-8-order-md-1">
+    <h4 class="mb-3"> Profile Set up </h4>
+    <form class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
           <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
+            Valid first name is required.
           </div>
         </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
 
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required>
-              <option value="">Choose...</option>
-              <option>California</option>
-            </select>
-            <div class="invalid-feedback">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">Username</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+          {{!-- <div class="invalid-feedback">
+              Valid first name is required.
+            </div> --}}
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Password</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+          {{!-- <div class="invalid-feedback">
+              Valid last name is required.
+            </div> --}}
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+        <div class="invalid-feedback">
+          Please enter a valid email address for shipping updates.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="state">State</label>
+          <select class="custom-select d-block w-100" id="state" required>
+            <option value="">Choose...</option>
+            <option>California</option>
+          </select>
+          {{!-- <div class="invalid-feedback">
               Please provide a valid state.
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required>
-            <div class="invalid-feedback">
-              Zip code required.
-            </div>
+            </div> --}}
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="" required>
+          <div class="invalid-feedback">
+            Zip code required.
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <h3>Choose your Pollen Allergies</h3>
-            <input type="checkbox" name="Roggen" value="Roggen">
-            <label for="Roggen"> Rye</label><br>
-            <input type="checkbox" name="Mugwort" value="Mugwort">
-            <label for="Mugwort"> Mugwort</label><br>
-            <input type="checkbox" name="Alder" value="Alder">
-            <label for="Alder"> Alder</label><br>
-            <input type="checkbox" name="Ragweed" value="Ragweed">
-            <label for="Ragweed"> Ragweed</label><br>
-            <input type="checkbox" name="Ash" value="Ash">
-            <label for="Ash"> Ash</label><br>
-            <input type="checkbox" name="Birch" value="Birch">
-            <label for="Birch"> Birch</label><br>
-            <input type="checkbox" name="Grass" value="Grass">
-            <label for="Grass"> Grass</label><br>
-            <input type="checkbox" name="Hasel" value="Hasel">
-            <label for="Hasel"> Hazel</label><br>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h3>Choose your Pollen Allergies</h3>
+          <input type="checkbox" name="Roggen" value="Roggen">
+          <label for="Roggen"> Rye</label><br>
+          <input type="checkbox" name="Mugwort" value="Mugwort">
+          <label for="Mugwort"> Mugwort</label><br>
+          <input type="checkbox" name="Alder" value="Alder">
+          <label for="Alder"> Alder</label><br>
+          <input type="checkbox" name="Ragweed" value="Ragweed">
+          <label for="Ragweed"> Ragweed</label><br>
+          <input type="checkbox" name="Ash" value="Ash">
+          <label for="Ash"> Ash</label><br>
+          <input type="checkbox" name="Birch" value="Birch">
+          <label for="Birch"> Birch</label><br>
+          <input type="checkbox" name="Grass" value="Grass">
+          <label for="Grass"> Grass</label><br>
+          <input type="checkbox" name="Hasel" value="Hasel">
+          <label for="Hasel"> Hazel</label><br>
         </div>
+      </div>
 
-        <hr class="mb-4">
-        <button>Sign in</button>
+      <hr class="mb-4">
+      <button>Sign in</button>
 
-      </form>
-    </div>
+    </form>
   </div>
+</div>

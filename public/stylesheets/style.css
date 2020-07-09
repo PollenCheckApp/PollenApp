@@ -40,10 +40,81 @@ a {
   border-top-right-radius: 0;
 }
 
-/* Profile
 
-.container {
-  max-width: 960px;
+/* layout  */
+
+
+.layout-body {
+  background-image: linear-gradient(to right, #2980B9, #6DD5FA);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
 }
 
-.lh-condensed { line-height: 1.25; } */
+/* signup  */
+
+.signup-main-class {
+  display: flex;
+}
+
+.col-md-8-order-md-1{
+  /* align-items: center; */
+  flex-direction: column;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
+  /* align-content: center; */
+  /* flex-shrink: 0; */
+  flex-basis: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Daily view */
+
+.daily-view-main-div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.jumbotron {
+  display: flex;
+  /* flex-basis: auto; */
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+  /* width: 400px; */
+
+}
+
+/* .container {
+  max-width: 50%;
+} */
+
+.row {
+  /* flex-direction: row; */
+  /* flex-basis: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100%; */
+  /* width: 400px; */
+}
+
+.form-container {
+  background-color: white;
+}
+
+/* login */
+
+.mt-5-mb-3-text-muted-link {
+  color: #FF0000;
+}
