@@ -20,7 +20,7 @@ const flash = require("connect-flash");
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/gabiakpollenapp', {
+  .connect(process.env.MONGODB_URI || 'mongodb://heroku_bm95wvdp:pa4emtjitdpu9n2il0qb1kgv27@ds159216.mlab.com:59216/heroku_bm95wvdp', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
