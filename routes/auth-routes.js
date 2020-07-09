@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -16,40 +17,40 @@ router.get("/signup", (req, res, next) => {
 
  // SIGNUP ROUTE - POST
 router.post("/signup", (req, res, next) => {
-  //const firstName = req.body.firstName;
+  const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const username = req.body.username;
   const password = req.body.password;
-  //const email = req.body.email;
+  const email = req.body.email;
   const userRegion = req.body.userRegion;
-  //const zipcode = req.body.zipcode;
-  //const userPollens = req.body.userPollens;
+  const zipcode = req.body.zipcode;
+  // const userPollens = req.body.userPollens;
 
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
 
-  // if (firstName !== string && firstName < 2) {
+  // if (firstName !== String && firstName < 2) {
   //   res.render("auth/signup", { message: "Your name cannot be a number or less then 2 characters" });
   //   return;
   // }
+
+
+
 
   // if (password < 8) {
   //   res.render("auth/signup", { message: "Password needs to be at least 8 characters" });
   //   return;
   // }
-
   // if (userRegion !== '') {
   //   res.render("auth/signup", { message: "Please choose your region" });
   //   return;
   // }
-
   // if (zipcode !== '') {
   //   res.render("auth/signup", { message: "For more accurate results, please add a zipcode" });
   //   return;
   // }
-
   // if (userPollens !== '') {
   //   res.render("auth/signup", { message: "Please choose at least 1 allergen" });
   //   return;
@@ -69,16 +70,17 @@ router.post("/signup", (req, res, next) => {
  
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
- 
+    // const test = 'test';
+
     const newUser = new User({
       username,
       password: hashPass,
-      // firstName,
-      // lastName,
-      // email,
-      // userRegion,
-      // zipcode,
-      // userPollens
+      firstName,
+      lastName,
+      email,
+      userRegion,
+      zipcode,
+      // userPollens,
     });
  
     newUser.save((err) => {
@@ -87,7 +89,7 @@ router.post("/signup", (req, res, next) => {
       } else {
         req.login(newUser, function(err) {
           if (err) { return next(err); }
-          return res.redirect("/history");
+          return res.redirect("/private-page");
 
         });
       }
