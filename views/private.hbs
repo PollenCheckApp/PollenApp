@@ -13,6 +13,12 @@
   <p>The Pollen Forcast for today is :</p>
 </div>
 
+{{#each pollens}}
+<h3>The Pollen Forcast for: {{region}}</h3>
+<h3>Today's Graeser score: {{pollen.Graeser.today}} </h3>
+<h3>Today's Ambrosia score: {{pollen.Ambrosia.today}} </h3>
+{{/each}}
+
 
 <div>
   <p>The Pollen Forcast for tommorow is :</p>
@@ -24,9 +30,13 @@
 <input id="location" type="hidden" value="0">
 <script src="/javascripts/pollen-data.js"></script>
 
-{{#each region_id}}
-    {{region_name}}
-{{/each}}
+<h1>This is the fun</h1>
+
+<h2>your results have been recorded</h2>
+
+<a href="/party">check here to see your alergy results</a>
+
+
 
 
 <div>

@@ -7,7 +7,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
-  userRegion: String,
+  userRegion: Number,
   zipcode: Number,
   // userPollens: [Number]
   

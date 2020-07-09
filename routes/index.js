@@ -1,8 +1,9 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express');
+const router  = express.Router();
 const axios = require("axios");
 const Pollens = require("../models/pollen");
 const User = require("../models/user");
+
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -41,11 +42,11 @@ router.get("/superfun", (req, res, next) => {
     })
     .then(res.redirect("/fun"));
 });
-
+// used to be party route + party.hbs
 router.get("/party", (req, res, next) => {
-  console.log(req.user.region);
+  console.log("does this work?", req.user.userRegion);
   let user = req.user;
-  Pollens.find({ region_id: req.user.region }).then((pollens) => {
+  Pollens.find({ region_id: req.user.userRegion }).then((pollens) => {
     console.log(pollens);
     res.render("party.hbs", { user, pollens });
   });
