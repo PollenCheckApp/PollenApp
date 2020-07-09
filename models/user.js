@@ -11,6 +11,7 @@ const userSchema = new Schema({
   zipcode: Number,
   // userPollens: [Number]
   
+
   // pollenAllergies: [String],
   // airPollution: Boolean
 }, {

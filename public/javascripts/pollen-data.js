@@ -14,8 +14,22 @@ axios
     const propertyNames = Object.keys(pollenDataAmbrosia);
     console.log(response.data.content);
 
+
        
     })
     .catch(err => {
         console.log('Error while getting the data', err);
     });
+
+    document.querySelectorAll("div").forEach((div) => {
+      for (let property of propertyNames) {
+        console.log(div.id, property);
+        if (div.id === property) {
+          div.innerHTML = `${property}: ${pollenDataAmbrosia[property]}`;
+        }
+      }
+    });
+  })
+  .catch((err) => {
+    console.log("Error while getting the data", err);
+  });
