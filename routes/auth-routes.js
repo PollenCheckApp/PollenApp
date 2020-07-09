@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -129,6 +130,26 @@ router.get("/logout", (req, res) => {
 router.get("/history", (req, res) => {
   res.render("history.hbs");
 }); 
+
+// Call to the API
+const apiUrl = `https://cors-anywhere.herokuapp.com/https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json`;
+
+router.get('/profile-setup', (req, res, next) => {
+  
+  axios.post(apiUrl)
+    .then(response => {
+      console.log(response.data);
+      const rawData = response.data;
+      const pollenDataAmbrosia = response.data.content[0].Pollen.Ambrosia.today;
+      console.log(pollenDataAmbrosia);
+      res.render("profile-setup",);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+});
+
+
 
 
 module.exports = router;

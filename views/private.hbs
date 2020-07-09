@@ -1,8 +1,14 @@
-<h2>After Login Page</h2>
+
+
+<head>
+ 
+<!--script src="/routes/private.js"></script></head-->
+
+<!--h2>After Login Page</h2-->
 {{#if user}}
 
 <div>
-  <p>Hello Username</p>
+  <p>Hello {{user.username}}</p>
 </div>
 
 
@@ -14,6 +20,13 @@
 <div>
   <p>The Pollen Forcast for tommorow is :</p>
 </div>
+
+<div id="partregion_name"></div>
+<div id="region_name"></div>
+<div id="region_id"></div>
+<input id="location" type="hidden" value="0">
+<script src="/javascripts/pollen-data.js"></script>
+
 
 <div>
   <a href="/history">View your last 5 entires</a>
