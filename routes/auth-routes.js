@@ -90,7 +90,7 @@ router.post("/signup", (req, res, next) => {
           if (err) { 
             return next(err);
           }
-          return res.redirect("/private-page");
+          return res.redirect("/fun");
 
         });
       }

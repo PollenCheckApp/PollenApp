@@ -1,32 +1,34 @@
 <head>
 
 <h2>After Login Page</h2
-{{#if user}}
+//{{#if user}}
 
 <div>
   <p>Hello {{user.username}}</p>
 </div>
 
-<h1>{{user.created_at}}</h1>
+<h1>Testdisplay usrRegion from Database: {{user.userRegion}}</h1>
 
 <div>
-  <p>The Pollen Forcast for today is {{user.userpollens}}:</p>
+  <p>The Pollen Forcast for today is :</p>
 </div>
 
 {{#each pollens}}
 <h3>The Pollen Forcast for: {{region}}</h3>
-<h3>Today's Graeser score: {{pollen.Graeser.today}} </h3>
-<h3>Today's Ambrosia score: {{pollen.Ambrosia.today}} </h3>
+<h3>Today's Graeser score: {{pollen.Graeser.today.}} </h3>
+<h3>Today's Ambrosia score: {{pollen.Ambrosia.today.}} </h3>
 {{/each}}
 
 
 <div>
   <p>The Pollen Forcast for tommorow is :</p>
+  <h3>Tomorrow"s Graeser score: {{pollen.Graeser.tomorrow.}}</h3>
+  <h3>Tommorow's Ambrosia score: {{pollen.Ambrosia.tomorrow.}} </h3>
 </div>
 
-<div id="partregion_name"></div>
+<!--div id="partregion_name"></div>
 <div id="region_name"></div>
-<div id="region_id"></div>
+<div id="region_id"></div-->
 <input id="location" type="hidden" value="0">
 <script src="/javascripts/pollen-data.js"></script>
 
@@ -38,7 +40,7 @@
 
 
 <div>
-  <a href="/history">View your last 5 entires</a>
+  <a href="/history">View your last 5 entries</a>
 </div>
 <br>
 

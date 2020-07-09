@@ -6,14 +6,14 @@ const User = require("../models/user");
 
 
 /* GET home page */
-router.get('/', (req, res, next) => {
+router.get("/", (req, res, next) => {
   console.log(req.user);
-  res.render('index.hbs');
+  res.render("index.hbs");
 });
 
-router.get('/about', (req, res, next) => {
+router.get("/about", (req, res, next) => {
   console.log(req.user);
-  res.render('about.hbs');
+  res.render("about.hbs");
 });
 
 router.get("/superfun", (req, res, next) => {
@@ -58,5 +58,8 @@ router.get("/fun", (req, res, next) => {
   console.log(req.user);
   res.render("fun.hbs", { user: req.user });
 });
+
+
+//const pollenEffect = ({pollen.Graeser.today}> 1 ) return "none";
 
 module.exports = router;
