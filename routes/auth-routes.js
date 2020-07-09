@@ -30,10 +30,15 @@ router.post("/signup", (req, res, next) => {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
+
   // if (firstName !== String && firstName < 2) {
   //   res.render("auth/signup", { message: "Your name cannot be a number or less then 2 characters" });
   //   return;
   // }
+
+
+
+
   // if (password < 8) {
   //   res.render("auth/signup", { message: "Password needs to be at least 8 characters" });
   //   return;
