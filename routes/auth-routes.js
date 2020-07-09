@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -129,6 +130,5 @@ router.get("/logout", (req, res) => {
 router.get("/history", (req, res) => {
   res.render("history.hbs");
 }); 
-
 
 module.exports = router;

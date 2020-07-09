@@ -19,7 +19,10 @@ const User          = require("./models/user");
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/gabiakpollenapp', {useNewUrlParser: true})
+  .connect('mongodb://localhost/gabiakpollenapp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
@@ -103,6 +106,10 @@ app.use('/', index);
 
 const router = require("./routes/auth-routes");
 app.use('/', router);
+
+////const  private = require('./routes/private');
+//app.use('/private', private);
+
 
 
 module.exports = app;
