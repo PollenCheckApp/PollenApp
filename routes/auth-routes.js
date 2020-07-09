@@ -1,4 +1,4 @@
-const axios = require('axios');
+// const axios = require('axios');
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
@@ -65,7 +65,6 @@ router.post("/signup", (req, res, next) => {
  
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-    // const test = 'test';
 
     const newUser = new User({
       username,
@@ -83,7 +82,9 @@ router.post("/signup", (req, res, next) => {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
         req.login(newUser, function(err) {
-          if (err) { return next(err); }
+          if (err) { 
+            return next(err);
+          }
           return res.redirect("/private-page");
 
         });
@@ -105,7 +106,7 @@ router.get("/login", (req, res, next) => {
 
 // SIGNIN ROUTE - POST
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/private-page",
+  successRedirect: "/fun",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true

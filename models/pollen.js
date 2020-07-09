@@ -6,7 +6,7 @@ const pollenSchema = new Schema(
     part_region: String,
     region: String,
     region_id: Number,
-    part_region_id: Number,
+    partregion_id: Number,
     pollen: {},
   },
   {
