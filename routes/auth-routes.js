@@ -1,38 +1,85 @@
+// const axios = require('axios');
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
-const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
+const User = require("../models/user");
 
- 
+//========================
+// SIGNUP ROUTE 
+//========================
+// SIGNUP ROUTE - GET
 router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
- 
+
+ // SIGNUP ROUTE - POST
 router.post("/signup", (req, res, next) => {
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
   const username = req.body.username;
   const password = req.body.password;
- 
+  const email = req.body.email;
+  const userRegion = req.body.userRegion;
+  const zipcode = req.body.zipcode;
+  // const userPollens = req.body.userPollens;
+
   if (username === "" || password === "") {
     res.render("auth/signup", { message: "Indicate username and password" });
     return;
   }
- 
+
+  // if (firstName !== String && firstName < 2) {
+  //   res.render("auth/signup", { message: "Your name cannot be a number or less then 2 characters" });
+  //   return;
+  // }
+
+
+
+
+  // if (password < 8) {
+  //   res.render("auth/signup", { message: "Password needs to be at least 8 characters" });
+  //   return;
+  // }
+  // if (userRegion !== '') {
+  //   res.render("auth/signup", { message: "Please choose your region" });
+  //   return;
+  // }
+  // if (zipcode !== '') {
+  //   res.render("auth/signup", { message: "For more accurate results, please add a zipcode" });
+  //   return;
+  // }
+  // if (userPollens !== '') {
+  //   res.render("auth/signup", { message: "Please choose at least 1 allergen" });
+  //   return;
+  // }
+
   User.findOne({ username })
   .then(user => {
     if (user !== null) {
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
+    // if (email !== null) {
+    //   res.render("auth/signup", { message: "This email is already exists" });
+    //   return;
+    // }
+    
  
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
- 
+
     const newUser = new User({
       username,
-      password: hashPass
+      password: hashPass,
+      firstName,
+      lastName,
+      email,
+      userRegion,
+      zipcode,
+      // userPollens,
     });
  
     newUser.save((err) => {
@@ -40,25 +87,31 @@ router.post("/signup", (req, res, next) => {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
         req.login(newUser, function(err) {
-          if (err) { return next(err); }
-          return res.redirect("/profile-setup");
+          if (err) { 
+            return next(err);
+          }
+          return res.redirect("/private-page");
 
         });
       }
     });
   })
   .catch(error => {
-    next(error)
-  })
+    next(error);
+  });
 });
 
-
+//========================
+// SIGNIN ROUTE 
+//========================
+// SIGNIN ROUTE - GET
 router.get("/login", (req, res, next) => {
-  res.render("auth/login");
+  res.render("auth/login", { message: req.flash("error")});
 });
- 
+
+// SIGNIN ROUTE - POST
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/private-page",
+  successRedirect: "/fun",
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
@@ -66,7 +119,7 @@ router.post("/login", passport.authenticate("local", {
 
 //Authentication page
 router.get("/private-page", ensureLogin.ensureLoggedIn(), (req, res) => {
-  res.render("private", { user: req.user });
+  res.render("private.hbs", { user: req.user });
 });
 
 //LOGOUT
@@ -75,48 +128,9 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 }); 
 
-
-// PROFILE SETUP PAGE
-
-router.get("/profile-setup", (req, res) => {
-  res.render("profile-setup");
-}); 
-
-
-//pollen-forecast
-
-router.get("/daily-view", (req, res) => {
-  res.render("daily-view");
-}); 
-
-
-// router.post("/profile-setup", (req, res, next) => {
-//   const name = req.body.username;
-//   const zipcode = req.body.zipcode;
- 
-//   if (zipcode >= 6) {
-//     res.render("profile-setup", { message: "Zipcode is incorrect" });
-//     return;
-//   }
-router.post("/profile-setup", (req, res, next) => {
-  console.log(req.user)
-  const {name, zipcode, userRegions, userPollens} = req.body;
-  // const name = req.body.name;
-  // const zipcode = req.body.zipcode;
-  // console.log('the name is :', name);
-  // console.log('the zipcode is :', zipcode);
-  User.findByIdAndUpdate(req.user._id, { name, userRegions, userPollens} , { new: true }).then(responseDB => {
-    console.log("this is the response", responseDB)
-    res.redirect("/private-page")
-  })
-});
-
-// HISTORY PAGE
-
-
+// HISTORY PAGE - WORKS!
 router.get("/history", (req, res) => {
   res.render("history.hbs");
 }); 
-
 
 module.exports = router;

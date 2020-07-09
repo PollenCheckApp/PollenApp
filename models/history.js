@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
  
 const historySchema = new Schema({
-  currentMood: String,
+  currentMood: Number, // 1=great ,2 ,3 ,4 ,5=really bad
   currectDate: Number,
   currentPollution: Number,
   

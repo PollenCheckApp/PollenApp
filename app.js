@@ -14,17 +14,21 @@ const bcrypt        = require("bcrypt");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User          = require("./models/user");
+const flash = require("connect-flash");
 
 
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/gabiakpollenapp', {useNewUrlParser: true})
+  .connect('mongodb://localhost/gabiakpollenapp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -35,7 +39,7 @@ const app = express();
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(session({
@@ -63,12 +67,12 @@ passport.use(new LocalStrategy((username, password, next) => {
       return next(err);
     }
     if (!user) {
-      return next(null, false, { message: "Incorrect username" });
+      return next(null, false, { message: "Invalid credendials" });
     }
     if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
+      return next(null, false, { message: "Invalid credendials" });
     }
- 
+
     return next(null, user);
   });
 }));
@@ -91,7 +95,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
+app.use(flash());
 
 // default value for title local
 app.locals.title = 'PollenCheckAPP';
@@ -103,6 +107,5 @@ app.use('/', index);
 
 const router = require("./routes/auth-routes");
 app.use('/', router);
-
 
 module.exports = app;
