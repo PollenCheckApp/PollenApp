@@ -19,15 +19,12 @@ const User          = require("./models/user");
 // Mongoose configuration
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/gabiakpollenapp', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+  .connect('mongodb://localhost/gabiakpollenapp', {useNewUrlParser: true})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -38,7 +35,7 @@ const app = express();
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(session({
@@ -106,10 +103,6 @@ app.use('/', index);
 
 const router = require("./routes/auth-routes");
 app.use('/', router);
-
-////const  private = require('./routes/private');
-//app.use('/private', private);
-
 
 
 module.exports = app;

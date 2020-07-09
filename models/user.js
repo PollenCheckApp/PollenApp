@@ -7,7 +7,7 @@ const userSchema = new Schema({
   name: String,
   zipcode: Number,
   userRegions: [Number],
-  // userPollens: [Number]
+  userPollens: [Number]
   // pollenAllergies: [String],
   // airPollution: Boolean
 }, {
