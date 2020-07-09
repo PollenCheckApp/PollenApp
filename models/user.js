@@ -9,8 +9,8 @@ const userSchema = new Schema({
   email: String,
   userRegion: [Number],
   zipcode: Number,
-  userRegions: [Number],
-  userPollens: [Number]
+  //userRegions: [Number],
+  userPollens: [Number],
   // pollenAllergies: [String],
   // airPollution: Boolean
 }, {
