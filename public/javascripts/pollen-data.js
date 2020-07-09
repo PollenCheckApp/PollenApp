@@ -10,16 +10,10 @@ axios
     const location = parseFloat(document.querySelector("#location").value);
     const rawData = response.data;
     const pollenDataAmbrosia = response.data.content[location];
+
     console.log("is this an object?", pollenDataAmbrosia);
     const propertyNames = Object.keys(pollenDataAmbrosia);
     console.log(response.data.content);
-
-
-       
-    })
-    .catch(err => {
-        console.log('Error while getting the data', err);
-    });
 
     document.querySelectorAll("div").forEach((div) => {
       for (let property of propertyNames) {
