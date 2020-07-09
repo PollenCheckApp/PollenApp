@@ -14,6 +14,7 @@ const bcrypt        = require("bcrypt");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User          = require("./models/user");
+const flash = require("connect-flash");
 
 
 // Mongoose configuration
@@ -66,12 +67,12 @@ passport.use(new LocalStrategy((username, password, next) => {
       return next(err);
     }
     if (!user) {
-      return next(null, false, { message: "Incorrect username" });
+      return next(null, false, { message: "Invalid credendials" });
     }
     if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
+      return next(null, false, { message: "Invalid credendials" });
     }
- 
+
     return next(null, user);
   });
 }));
@@ -94,7 +95,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
+app.use(flash());
 
 // default value for title local
 app.locals.title = 'PollenCheckAPP';
@@ -106,10 +107,5 @@ app.use('/', index);
 
 const router = require("./routes/auth-routes");
 app.use('/', router);
-
-////const  private = require('./routes/private');
-//app.use('/private', private);
-
-
 
 module.exports = app;
