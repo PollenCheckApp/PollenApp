@@ -106,7 +106,7 @@ router.post("/signup", (req, res, next) => {
 //========================
 // SIGNIN ROUTE - GET
 router.get("/login", (req, res, next) => {
-  res.render("auth/login");
+  res.render("auth/login", { message: req.flash("error")});
 });
 
 // SIGNIN ROUTE - POST
