@@ -18,4 +18,4 @@ axios
     })
     .catch(err => {
         console.log('Error while getting the data', err);
-    })
+    });
