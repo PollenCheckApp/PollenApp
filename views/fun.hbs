@@ -1,18 +1,72 @@
-
-
-
-Private page
 {{#if user}}
+<div>
   <div>
-
-  <h1>This is the fun</h1>
-
-  <h2>your results have been recorded</h2>
-
-  <a href="/party">check here to see your alergy results</a>
-
-  
-
-    <a href="/">Index</a>
+    <p>Welcome back! {{user.username}}</p>
+    <br>
   </div>
+
+  <h2>Today's Pollen forcast for {{ user.userRegion }}, has been added to your <a href="/party">History</a></h2>
+  <br>
+</div>
+
+<div>
+  <section>
+    <header>
+      <br>
+      <h2>Tips to Manage Your Allergies:</h2>
+      <br>
+    </header>
+
+    <div>
+      <div>
+        <div>
+          <img src="/images/tips/shower.png" alt="image">
+  
+        </div>
+        <div>
+          <span>Shower after being outdoors</span>
+          To remove pollen you pick up outside, take a shower and change your clothes.
+        </div>
+      </div>
+
+
+      <div>
+        <div>
+          <img src="/images/tips/outdoor.png" alt="image">
+        </div>
+        <div>
+          <span>Minimize indoor pollen</span>
+          Keep your windows shut and use your AC or a HEPA purifier to filter allergens.
+        </div>
+      </div>
+
+
+      <div>
+        <div>
+          <img src="/images/tips/weather.png">
+        </div>
+        <div>
+          <span>Check the Weather</span>
+          Learn when conditions such as the wind increase pollen levels, so you can prepare.
+        </div>
+      </div>
+
+
+      <div>
+        <div>
+          <img src="/images/tips/doctor.png">
+        </div>
+        <div>
+          <span>Know your allergy relief options</span>
+          From medications to nasal sprays, talk to your doctor about your options.
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<br>
+<a href="/logout">Logout</a>
+
 {{/if}}
