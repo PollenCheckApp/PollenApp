@@ -27,22 +27,17 @@ router.post("/signup", (req, res, next) => {
   // const userPollens = req.body.userPollens;
 
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", { message: "You must choose a username and a password" });
     return;
   }
-
-  // if (firstName !== String && firstName < 2) {
+  // if (firstName !== 'number' && firstName < 2) {
   //   res.render("auth/signup", { message: "Your name cannot be a number or less then 2 characters" });
   //   return;
   // }
-
-
-
-
-  // if (password < 8) {
-  //   res.render("auth/signup", { message: "Password needs to be at least 8 characters" });
-  //   return;
-  // }
+  if (password.length > 8) {
+    res.render("auth/signup", { message: "Password needs to be at least 8 characters" });
+    return;
+  }
   // if (userRegion !== '') {
   //   res.render("auth/signup", { message: "Please choose your region" });
   //   return;
