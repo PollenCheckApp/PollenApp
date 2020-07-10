@@ -1,7 +1,11 @@
 <div class="col-md-8 order-md-1">
-  <h4 class="mb-3"> Create your Account </h4>
+  <h4 class="mb-3"> Let's make an account 🥳 </h4>
+  <h3> Have already an account ?</h3>
+  <a class="text-muted" href="/login">Login Here</a>
+  <br>
 
   <form action="/signup" method="POST" class="needs-validation">
+  <br>
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="firstName">First name</label>
@@ -38,10 +42,11 @@
           <option value="10" >Schleswig-Holstein and Hamburg</option>
           <option value="20">Mecklenburg-Vorpommern</option>
           <option value="30">Niedersachsen und Bremen</option>
-          <option value="50">Nordrhein-Westfalen</option>
-          <option value="60">Brandenburg and Berlin</option>
-          <option value="70">Sachsen-Anhalt</option>
-          <option value="80">Thüringen</option>
+          <option value="40">Nordrhein-Westfalen</option>
+          <option value="50">Brandenburg and Berlin</option>
+          <option value="60">Sachsen-Anhalt</option>
+          <option value="70">Thüringen</option>
+          <option value="80">Sachsen</option>
           <option value="90">Hessen</option>
           <option value="100">Rheinland-Pfalz and Saarland</option>
           <option value="110">Baden-Württemberg</option>
@@ -56,7 +61,12 @@
     
     <div class="row">
       <div class="col-md-4 mb-3">
-        <h3>Choose your Pollen Allergies</h3>
+
+        <div>
+          <p>What type of Allergies you have ?</p>
+          <br>
+        </div>
+
         <input type="checkbox" name="Roggen" value="Roggen">
         <label for="Roggen"> Rye</label><br>
         <input type="checkbox" name="Mugwort" value="Mugwort">
@@ -75,6 +85,11 @@
         <label for="Hasel"> Hazel</label><br>
       </div>
     </div>  
+
+  {{#if message}}
+    <div class="error-message">{{ message }}</div>
+    <br>
+  {{/if}}
 
     <hr class="mb-4">
     <button>Sign in</button>
