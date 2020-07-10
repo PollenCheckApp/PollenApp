@@ -1,19 +1,26 @@
-<h1>Hello {{user.username}}</h1>
-<h2>Welcome to your pollen info page:</h2>
-<br>
-{{#each pollens}}
-<h3>Pollen scores for {{region}}:</h3>
-<br>
-<h3>Legend for the Pollen count: 0 is none // 1-2 is moderate // 3 is high</h3>
+
+<h2>Summary of your Pollen forcasts:</h2>
 <br>
 
-<h3>Today's Grass score: {{pollen.Graeser.today}} </h3>
-<h3>Today's Ragweed score: {{pollen.Ambrosia.today}} </h3>
-<h3>Today's Hazel score: {{pollen.Hasel.today}} </h3>
+{{#each pollens}}
+
 <br>
 <h3>Tomorrow's Grass score: {{pollen.Graeser.tomorrow}}</h3>
+<br>
 <h3>Tomorrow's Ragweed score: {{pollen.Ambrosia.tomorrow}} </h3>
+<br>
 <h3>Tomorrow's Hazel score: {{pollen.Hasel.tomorrow}} </h3>
 <br>
+
 {{/each}}
-<h2></h2>
+
+
+<h3>Pollen scores for {{region}}:</h3>
+<br>
+<h3>Legend for the Pollen count:</h3>
+<p>0 is none</p>
+<p>1-2 is moderate</p>
+<p>3 is high</p>
+<br>
+
+<a href="/fun">Back</a>
