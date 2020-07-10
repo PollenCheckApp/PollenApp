@@ -5,7 +5,15 @@
     <br>
   </div>
 
-  <h2>Today's Pollen forcast for {{ user.userRegion }}, has been added to your <a href="/party">History</a></h2>
+  <h2>Today's Pollen forcast for Berlin - Brandenburg, has been added to your <a class="text-muted" href="/party">History</a></h2>
+  <br>
+</div>
+
+<div>
+  <br>
+    <h3>Tomorrow's Hazel score: 1 {{pollen.Hasel.tomorrow}} </h3>
+  <br>
+    <h3>Tomorrow's Grass score: 0 {{pollen.Graeser.tomorrow}}</h3>
   <br>
 </div>
 
@@ -67,6 +75,6 @@
 </div>
 
 <br>
-<a href="/logout">Logout</a>
+<a class="text-muted" href="/logout">Logout</a>
 
 {{/if}}
